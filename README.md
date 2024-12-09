@@ -5,6 +5,11 @@ This project contains two main components:
 1. `GenerateUsers`: Generates user data and writes it to a Google Cloud Storage (GCS) bucket.
 2. `ExportUserData`: Reads user data from a GCS bucket and processes it.
 
+
+## The Architecture
+
+![img_1.png](img_1.png)
+
 ## Prerequisites
 
 - Java 8 or higher
@@ -14,7 +19,7 @@ This project contains two main components:
 
 ## How to Run
 
-### Generate Users
+### Generate Users local
 
 1. Run the `GenerateUsers` on direct runner pipeline:
     ```sh 
@@ -74,7 +79,7 @@ This project contains two main components:
    > Replace indrit-vaka:apache_beam.user_data with your project:dataset.table, and
    projects/indrit-vaka/subscriptions/user-data-sub with your project/subscriptions/subscription-name.
 
-5. Run the `ExportUserData` on direct runner pipeline:
+5. OPTIONAL Local Test: Run the `ExportUserData` on direct runner pipeline:
     ```sh
     mvn compile exec:java -Dexec.mainClass=com.indritvaka.ExportUserData \
          -Dexec.args="--inputFile=gs://your-bucket/path/to/input \
@@ -119,7 +124,7 @@ com.indritvaka.GenerateUsers \
 --stagingLocation=gs://indrit-vaka-staging/temp/
 ```
 
-RUn the job to export user data to BigQuery using dataflow runner:
+Run the job to export user data to BigQuery using dataflow runner:
 
 ```shell
 java -cp beam-bundled-0.1.jar \
