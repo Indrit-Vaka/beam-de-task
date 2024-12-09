@@ -96,26 +96,26 @@ This project contains two main components:
 Generate a jar file for dataflow runner:
 
 ```shell
-mvn package -Pdataflow-runner
+mvn clean package -Pdataflow-runner
 ```
 
 Put this jar file to GCS:
 
 ```shell
-    gsutil cp target/beam-bundled-0.1.jar gs://indrit-vaka-tmp/beam/jobs/
+    gsutil cp target/beam-de-task-bundled-0.1.jar gs://indrit-vaka-tmp/beam/jobs/
 ```
 
 Open the cloud shell and copy the jar file from GCS to the cloud shell:
 
 ```shell
-   gsutil cp gs://indrit-vaka-tmp/beam/jobs/beam-bundled-0.1.jar .
+   gsutil cp gs://indrit-vaka-tmp/beam/jobs/beam-de-task-bundled-0.1.jar .
 
 ```
 
 Run the job to generate users using dataflow runner:
 
 ```shell
-java -cp beam-bundled-0.1.jar \
+java -cp beam-de-task-bundled-0.1.jar \
 com.indritvaka.GenerateUsers \
 --runner=DataflowRunner \
 --project=indrit-vaka \
@@ -127,7 +127,7 @@ com.indritvaka.GenerateUsers \
 Run the job to export user data to BigQuery using dataflow runner:
 
 ```shell
-java -cp beam-bundled-0.1.jar \
+java -cp beam-de-task-bundled-0.1.jar \
 com.indritvaka.ExportUserData \
 --runner=DataflowRunner \
 --project=indrit-vaka \

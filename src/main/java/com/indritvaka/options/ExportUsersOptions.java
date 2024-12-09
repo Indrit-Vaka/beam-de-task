@@ -1,4 +1,4 @@
-package com.indritvaka;
+package com.indritvaka.options;
 
 import org.apache.beam.sdk.options.Default;
 import org.apache.beam.sdk.options.Description;
